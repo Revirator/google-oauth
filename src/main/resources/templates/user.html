@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Demo Google OAuth2 Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/user.css}"/>
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <p th:text="${user.getFullName()}"></p>
+        <p th:text="${user.getEmail()}"></p>
+        <textarea th:text="${user.getInformation()}" class="personal-information"></textarea>
+        <a th:href="@{/user/${user.getId()}/information}" th:method="POST">
+            <button class="gsi-material-button" style="margin-top: 10px;">
+                <div class="gsi-material-button-state"></div>
+                <div class="gsi-material-button-content-wrapper">
+                    <span class="gsi-material-button-contents">Save</span>
+                </div>
+            </button>
+        </a>
+    </div>
+</body>
+
+</html>

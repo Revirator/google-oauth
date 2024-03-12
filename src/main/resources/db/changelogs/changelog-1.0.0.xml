@@ -1,0 +1,28 @@
+<databaseChangeLog logicalFilePath="db/changelogs/changelog-1.0.0.xml"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet id="1.0.0-create-users-table" author="revirator">
+        <createTable tableName="USERS">
+            <column name="ID" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="GIVEN_NAME" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FAMILY_NAME" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EMAIL" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="INFORMATION" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+        <rollback>
+            <dropTable tableName="USERS"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

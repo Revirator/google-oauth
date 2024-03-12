@@ -1,0 +1,24 @@
+server.port: 8080
+
+spring.datasource:
+  url: jdbc:postgresql://localhost:5432/postgres
+  username: postgres
+  password: postgres
+
+spring:
+  security:
+    user:
+      name: admin
+      password: admin
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: CHANGEME
+            clientSecret: CHANGEME
+            scope:
+              - email
+
+spring.thymeleaf.cache: false
+
+spring.liquibase.change-log: classpath:/db/changelog.xml
