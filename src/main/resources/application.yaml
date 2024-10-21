@@ -18,6 +18,7 @@ spring:
             clientSecret: CHANGEME
             scope:
               - email
+              - profile
 
 spring.thymeleaf.cache: false
 

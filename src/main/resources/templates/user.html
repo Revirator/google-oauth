@@ -13,15 +13,17 @@
     <div class="content-wrapper">
         <p th:text="${user.getFullName()}"></p>
         <p th:text="${user.getEmail()}"></p>
-        <textarea th:text="${user.getInformation()}" class="personal-information"></textarea>
-        <a th:href="@{/user/${user.getId()}/information}" th:method="POST">
+        <form th:action="@{/user}" th:method="post" th:object="${user}">
+            <input th:field="*{id}" type="hidden"/>
+            <label>Personal information:</label>
+            <textarea th:text="${user.getInformation()}" th:field="*{information}" class="personal-information"></textarea>
             <button class="gsi-material-button" style="margin-top: 10px;">
                 <div class="gsi-material-button-state"></div>
                 <div class="gsi-material-button-content-wrapper">
                     <span class="gsi-material-button-contents">Save</span>
                 </div>
             </button>
-        </a>
+        </form>
     </div>
 </body>
 
